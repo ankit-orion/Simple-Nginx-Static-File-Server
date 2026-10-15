@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localhost — My little corner of the web</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <nav aria-label="Main navigation"><a class="brand" href="/"><span class="mark">/</span> localhost<span
+                    class="brand-dot">.</span></a>
+            <div class="navlinks"><a href="/" aria-current="page">Home</a><a href="/about">About</a><a
+                    href="/contact">Contact ↗</a></div>
+        </nav>
+        <main>
+            <section class="hero" id="home">
+                <div>
+                    <div class="eyebrow">A little code. A whole new world.</div>
+                    <h1>Small server.<span>Big possibilities.</span></h1>
+                    <p class="intro">From a simple “Hello World” to your own corner of the internet. This is what
+                        happens when your HTML comes to life.</p>
+                    <div class="actions"><a class="button primary" href="#explore">Take a look around
+                            <span>↗</span></a><a class="button" href="#playground">Try the colors <span>◉</span></a>
+                    </div>
+                    <p class="note">Built with curiosity. Served by your Node.js app.</p>
+                </div>
+                <div class="scene" aria-label="Decorative terminal illustration">
+                    <div class="orbit"></div><span class="badge">✦ made from scratch</span>
+                    <div class="terminal">
+                        <div class="terminalbar"><i></i><i></i><i></i><span>my-first-server / terminal</span></div>
+                        <div class="code"><span class="dim"># one small step</span><br><span class="green">$</span> node
+                            server.js<br><br><span class="green">→</span> Ready for your next idea.<br><span
+                                class="green">→</span> Hello, world.<br><span class="dim">$</span> <span
+                                class="cursor"></span></div>
+                    </div><span class="sticker">It works! ✳</span>
+                </div>
+            </section>
+            <div class="ticker"><span><b>✳</b> JUST HTML, CSS &amp; JS</span><span><b>✳</b> NO FRAMEWORK
+                    REQUIRED</span><span><b>✳</b> ENDLESS POSSIBILITIES</span></div>
+            <section id="explore">
+                <div class="section-head">
+                    <div><span class="eyebrow">Under the surface</span>
+                        <h2>Three ingredients. One experience.</h2>
+                    </div>
+                    <p>A few simple pieces come together to make something you can see and touch.</p>
+                </div>
+                <div class="cards">
+                    <article class="card">
+                        <div class="cardtop">
+                            <div class="icon">&lt;/&gt;</div><span class="number">01 / STRUCTURE</span>
+                        </div>
+                        <h3>Give your ideas a home.</h3>
+                        <p>Headings, paragraphs, links, and sections. HTML turns an empty page into a place with a
+                            purpose.</p><span class="tag">index.html</span>
+                    </article>
+                    <article class="card">
+                        <div class="cardtop">
+                            <div class="icon">✳</div><span class="number">02 / STYLE</span>
+                        </div>
+                        <h3>Make it feel like you.</h3>
+                        <p>A dash of color. A little breathing room. CSS gives every corner of this page its own
+                            personality.</p><span class="tag">index.css</span>
+                    </article>
+                    <article class="card">
+                        <div class="cardtop">
+                            <div class="icon">{ }</div><span class="number">03 / INTERACTION</span>
+                        </div>
+                        <h3>Add a little magic.</h3>
+                        <p>Listen for a click and change what you see. JavaScript makes the page respond to your
+                            curiosity.</p><span class="tag">&lt;script&gt; … &lt;/script&gt;</span>
+                    </article>
+                </div>
+            </section>
+            <section class="playground" id="playground">
+                <div>
+                    <div class="eyebrow">Go ahead. Play a little.</div>
+                    <h2>A different shade of possibility.</h2>
+                    <p>Pick a color and watch the accents change. A tiny interaction, written right here in this HTML
+                        file.</p>
+                    <div class="swatches" role="group" aria-label="Choose an accent color"><button class="swatch"
+                            style="background:#d9f77c" data-color="#d9f77c" data-name="Fresh lime"
+                            aria-label="Fresh lime" aria-pressed="true"></button><button class="swatch"
+                            style="background:#cab5f7" data-color="#cab5f7" data-name="Soft lilac"
+                            aria-label="Soft lilac" aria-pressed="false"></button><button class="swatch"
+                            style="background:#ffbd9e" data-color="#ffbd9e" data-name="Peach glow"
+                            aria-label="Peach glow" aria-pressed="false"></button><button class="swatch"
+                            style="background:#9cdbed" data-color="#9cdbed" data-name="Sky blue" aria-label="Sky blue"
+                            aria-pressed="false"></button></div>
+                </div>
+                <div class="sample"><small>YOUR NEXT IDEA STARTS HERE</small><strong>Hello, possibilities.</strong>
+                    <div class="sample-bottom"><span id="color-name" aria-live="polite">Fresh lime /
+                            #D9F77C</span><span>↗</span></div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer"><span><b>localhost.</b> A starting point for something great.</span><a href="#home">Back
+                to the top ↑</a></footer>
+    </div>
+    <script>
+        // Change the accent color when a swatch is clicked.
+        document.querySelectorAll('.swatch').forEach((button) => {
+            button.addEventListener('click', () => {
+                document.documentElement.style.setProperty('--accent', button.dataset.color);
+                document.querySelectorAll('.swatch').forEach((swatch) => {
+                    swatch.setAttribute('aria-pressed', String(swatch === button));
+                });
+                document.getElementById('color-name').textContent = button.dataset.name + ' / ' + button.dataset.color.toUpperCase();
+            });
+        });
+    </script>
+</body>
+
+</html>
